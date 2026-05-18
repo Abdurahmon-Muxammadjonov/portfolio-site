@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Rounded dark container background -->
+  <rect width="32" height="32" rx="8" fill="#0A0A0C" />
+  <!-- Glowing subtle inner stroke -->
+  <rect x="0.5" y="0.5" width="31" height="31" rx="7.5" fill="none" stroke="#6366F1" stroke-opacity="0.3" stroke-width="1" />
+  
+  <!-- Stylized premium "M" coding logo with gradients -->
+  <defs>
+    <linearGradient id="glow-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4F46E5" />
+      <stop offset="100%" stop-color="#7C3AED" />
+    </linearGradient>
+    <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="0.8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Stylized "M" path in code bracket style -->
+  <path d="M8 22V10L12 15L16 11L20 15L24 10V22" fill="none" stroke="url(#glow-grad)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" filter="url(#neon-glow)" />
+</svg>

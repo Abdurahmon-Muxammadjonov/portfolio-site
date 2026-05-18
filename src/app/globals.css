@@ -1,26 +1,130 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #08080a;
+  --foreground: #f4f4f5;
+  --color-accent-indigo: #6366F1;
+  --color-accent-gradient-start: #4F46E5;
+  --color-accent-gradient-end: #7C3AED;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Styled Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0e12;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent-indigo);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-gradient-end);
+}
+
+/* Standard Responsive Container */
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .container { max-width: 640px; }
+}
+@media (min-width: 768px) {
+  .container { max-width: 768px; }
+}
+@media (min-width: 1024px) {
+  .container { max-width: 1024px; }
+}
+@media (min-width: 1280px) {
+  .container { max-width: 1200px; }
+}
+
+/* Particles float background styles */
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.2);
+  animation: float 10s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.delay-1 { left: 12%; top: 18%; animation-delay: 0s; opacity: 0.6; }
+.delay-2 { left: 32%; top: 8%; animation-delay: 1.5s; opacity: 0.7; }
+.delay-3 { left: 55%; top: 15%; animation-delay: 3s; opacity: 0.5; }
+.delay-4 { left: 78%; top: 12%; animation-delay: 4.5s; opacity: 0.6; }
+.delay-5 { left: 8%; top: 38%; animation-delay: 6s; opacity: 0.4; }
+.delay-6 { left: 45%; top: 28%; animation-delay: 1s; opacity: 0.5; }
+.delay-7 { left: 24%; top: 54%; animation-delay: 2.5s; opacity: 0.6; }
+.delay-8 { left: 68%; top: 48%; animation-delay: 4s; opacity: 0.5; }
+.delay-9 { left: 85%; top: 58%; animation-delay: 5.5s; opacity: 0.4; }
+.delay-10 { left: 5%; top: 78%; animation-delay: 0.5s; opacity: 0.5; }
+.delay-11 { left: 42%; top: 82%; animation-delay: 2s; opacity: 0.6; }
+.delay-12 { left: 78%; top: 74%; animation-delay: 3.5s; opacity: 0.5; }
+.delay-13 { left: 88%; top: 25%; animation-delay: 5s; opacity: 0.3; }
+.delay-14 { left: 22%; top: 88%; animation-delay: 1.8s; opacity: 0.4; }
+
+@keyframes float {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  25% {
+    transform: translate3d(15px, -25px, 0) scale(0.9);
+  }
+  50% {
+    transform: translate3d(-15px, 20px, 0) scale(1.1);
+  }
+  75% {
+    transform: translate3d(12px, 15px, 0) scale(0.95);
+  }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 24s linear infinite;
+}
+
+.animate-spin-slow:hover {
+  animation-play-state: paused;
+}
+
+
+/* Typing cursor animation */
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+.typing-cursor {
+  border-right: 3px solid var(--color-accent-indigo);
+  animation: blink 0.75s step-end infinite;
 }
