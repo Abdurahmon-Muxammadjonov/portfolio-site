@@ -72,7 +72,8 @@ export default function AboutSection() {
           <ScrollReveal direction="up" delay={300}>
             <div className="mt-9 text-center lg:text-left">
               <a
-                href="#"
+                href="/CW.pdf"
+                download="Abdurahmon_Muxammadjonov_CV.pdf"
                 className="group relative inline-flex items-center justify-center px-8 py-3.5 font-bold text-[#959595] border-2 border-[#959595] rounded-lg overflow-hidden hover:border-[#6366F1] transition-colors duration-300 max-w-[200px] w-full bg-transparent shadow-lg shadow-black/20"
               >
                 <span className="relative z-10 group-hover:text-white transition-colors duration-300">
